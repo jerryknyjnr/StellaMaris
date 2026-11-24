@@ -10,27 +10,21 @@
   body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;line-height:1.5}
   button,input,select{font:inherit}
   .hidden{display:none!important}
-
-  /* Login */
-  #login{min-height:100vh;display:grid;place-items:center;padding:24px;background:linear-gradient(135deg,var(--navy),var(--navy2))}
+  .auth{min-height:100vh;display:grid;place-items:center;padding:24px;background:linear-gradient(135deg,var(--navy),var(--navy2))}
   .login-card{background:#fff;border-radius:18px;box-shadow:var(--sh);padding:36px 32px;width:100%;max-width:400px}
   .logo{width:52px;height:52px;border-radius:14px;background:var(--gold);color:var(--navy);display:grid;place-items:center;font-weight:800;font-size:20px;margin-bottom:16px}
   .login-card h1{font-size:22px;color:var(--navy)}
-  .login-card p.sub{color:var(--muted);font-size:14px;margin-bottom:22px}
+  .sub{color:var(--muted);font-size:14px;margin-bottom:20px}
   label{display:block;font-size:13px;font-weight:600;margin:12px 0 6px;color:#334155}
   input,select{width:100%;padding:10px 12px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;outline:none}
   input:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(29,111,214,.15)}
   .btn{background:var(--blue);color:#fff;border:0;padding:10px 16px;border-radius:10px;font-weight:600;font-size:14px;cursor:pointer;margin-top:6px}
   .btn:hover{background:#1558b0}
   .btn.full{width:100%;margin-top:18px;padding:12px}
-  .btn.ghost{background:transparent;color:var(--blue);border:1px solid var(--line)}
-  .btn.ghost:hover{background:var(--sky)}
   .btn.danger{background:#fff;color:var(--bad);border:1px solid #fecaca}
   .btn.sm{padding:6px 10px;font-size:13px;margin:0}
   .err{color:var(--bad);font-size:13px;margin-top:12px;min-height:18px}
-  .hint{font-size:12px;color:var(--muted);margin-top:18px;background:var(--sky);padding:10px 12px;border-radius:10px}
-
-  /* Shell */
+  .hint{font-size:12px;color:var(--muted);margin-top:16px;background:var(--sky);padding:10px 12px;border-radius:10px}
   .app{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
   .sidebar{background:linear-gradient(180deg,var(--navy),var(--navy2));color:#cbd5e1;padding:26px 16px;display:flex;flex-direction:column;gap:26px}
   .brand{display:flex;gap:12px;align-items:center;color:#fff}
@@ -41,393 +35,350 @@
   .nav button{background:transparent;border:0;color:#cbd5e1;text-align:left;padding:10px 12px;border-radius:10px;font-size:14px;cursor:pointer}
   .nav button:hover{background:rgba(255,255,255,.08);color:#fff}
   .nav button.active{background:rgba(255,255,255,.16);color:#fff;font-weight:600}
-  .sidebar .logout{margin-top:auto;background:transparent;border:1px solid rgba(255,255,255,.2);color:#e2e8f0;padding:9px;border-radius:10px;cursor:pointer}
+  .logout{margin-top:auto;background:transparent;border:1px solid rgba(255,255,255,.2);color:#e2e8f0;padding:9px;border-radius:10px;cursor:pointer}
   .main{padding:26px 34px 48px}
   .top{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:24px}
   .top h1{font-size:24px;color:var(--navy)}
   .top p{color:var(--muted);font-size:14px}
   .who{background:#fff;box-shadow:var(--sh);padding:8px 14px;border-radius:999px;font-size:14px}
-  .who small{color:var(--muted)}
-
+  .who small{color:var(--muted);text-transform:capitalize}
   .card{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);padding:22px;margin-bottom:20px}
   .card h2{font-size:16px;color:var(--navy);margin-bottom:14px}
   .row{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end}
   .row > div{flex:1;min-width:160px}
   .row .btn{margin-top:0}
-  .msg{font-size:13px;margin-top:10px;min-height:18px}
-  .msg.ok{color:var(--ok)} .msg.bad{color:var(--bad)}
-
   table{width:100%;border-collapse:collapse;font-size:14px}
   th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line)}
   th{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.4px}
-  td input{width:90px;padding:6px 8px}
-  .tag{display:inline-block;background:var(--sky);color:var(--blue);font-size:12px;padding:2px 9px;border-radius:999px;margin:2px}
+  td input{width:100px;padding:6px 8px}
+  .tag{display:inline-block;background:var(--sky);color:var(--blue);font-size:13px;padding:3px 10px;border-radius:999px;margin:3px}
+  .x{color:var(--bad);text-decoration:none;margin-left:4px;font-weight:700}
   .grade{font-weight:700}
   .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px}
   .stat{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--sh)}
-  .stat .l{font-size:13px;color:var(--muted)} .stat .v{font-size:26px;font-weight:700;color:var(--navy)}
-  .checks{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:6px}
+  .stat .l{font-size:13px;color:var(--muted)}
+  .stat .v{font-size:26px;font-weight:700;color:var(--navy)}
+  .checks{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:6px}
   .checks label{margin:0;font-weight:500;display:flex;gap:6px;align-items:center}
   .checks input{width:auto}
-  .tabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
-  .tabs button{background:#fff;border:1px solid var(--line);padding:8px 14px;border-radius:999px;cursor:pointer;font-size:13px}
-  .tabs button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
-  .empty{color:var(--muted);font-size:14px;padding:12px 0}
-
+  .empty{color:var(--muted);font-size:14px;padding:8px 0}
+  .toast{position:fixed;right:20px;bottom:20px;max-width:380px;padding:12px 16px;border-radius:10px;color:#fff;font-size:14px;opacity:0;transform:translateY(8px);transition:.2s;pointer-events:none;z-index:50}
+  .toast.show{opacity:1;transform:none}
+  .toast.ok{background:var(--ok)}
+  .toast.bad{background:var(--bad)}
   @media(max-width:900px){.app{grid-template-columns:1fr}.sidebar{flex-direction:row;overflow-x:auto;padding:12px}.nav{flex-direction:row}.nav button{white-space:nowrap}.logout{display:none}.stats{grid-template-columns:1fr}.main{padding:20px 16px}}
 </style>
 </head>
 <body>
 
-<!-- LOGIN -->
-<section id="login">
+<section id="auth" class="auth hidden">
   <div class="login-card">
     <div class="logo">SM</div>
-    <h1>Stella Maris College</h1>
-    <p class="sub">Sign in to the student portal</p>
-    <label for="lg-user">Username or admission number</label>
-    <input id="lg-user" autocomplete="username">
-    <label for="lg-pass">Password</label>
-    <input id="lg-pass" type="password" autocomplete="current-password">
-    <button class="btn full" id="lg-btn">Sign in</button>
-    <div class="err" id="lg-err"></div>
-    <div class="hint">Demo accounts: <b>admin</b> / <b>admin123</b> · <b>teacher</b> / <b>teacher123</b> · student admission <b>1001</b> / <b>student123</b></div>
+    <h1 id="auth-title">Sign in</h1>
+    <p class="sub">Stella Maris College student portal</p>
+    <div id="setup-fields" class="hidden">
+      <label for="f-name">Your full name</label>
+      <input id="f-name" autocomplete="name">
+    </div>
+    <label for="f-user">Username or admission number</label>
+    <input id="f-user" autocomplete="username">
+    <label for="f-pass">Password</label>
+    <input id="f-pass" type="password" autocomplete="current-password">
+    <button class="btn full" id="auth-btn">Sign in</button>
+    <div class="err" id="auth-err"></div>
+    <div class="hint" id="auth-hint">Teachers sign in with their username. Students sign in with their admission number.</div>
   </div>
 </section>
 
-<!-- APP -->
 <div class="app hidden" id="app">
   <aside class="sidebar">
-    <div class="brand">
-      <div class="logo">SM</div>
-      <div><strong>Stella Maris</strong><span>Student Portal</span></div>
-    </div>
+    <div class="brand"><div class="logo">SM</div><div><strong>Stella Maris</strong><span>Student Portal</span></div></div>
     <nav class="nav" id="nav"></nav>
     <button class="logout" id="logout">Sign out</button>
   </aside>
-
   <main class="main">
-    <header class="top">
-      <div><h1 id="title"></h1><p id="sub"></p></div>
-      <div class="who" id="who"></div>
-    </header>
+    <header class="top"><div><h1 id="title"></h1><p id="sub"></p></div><div class="who" id="who"></div></header>
     <div id="content"></div>
   </main>
 </div>
 
+<div class="toast" id="toast"></div>
+
 <script>
-const KEY = "smc_portal_v2";
-const GRADES = [[75,"A"],[65,"B"],[55,"C"],[45,"D"],[35,"E"],[0,"U"]];
-const uid = () => Math.random().toString(36).slice(2,9);
+const $ = id => document.getElementById(id);
+const C = () => $("content");
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const q = encodeURIComponent;
+const GRADES = [[75,"A"],[65,"B"],[55,"C"],[45,"D"],[35,"E"],[0,"U"]];
+const gradeOf = n => GRADES.find(([min]) => n >= min)[1];
 
-function seed(){
-  return {
-    session: null,
-    terms: ["Term 1 2026", "Term 2 2026", "Term 3 2026"],
-    classes: [{id:"c1",name:"Form 4A"},{id:"c2",name:"Form 5B"}],
-    subjects: [{id:"s1",name:"Physics"},{id:"s2",name:"Combined Science"},{id:"s3",name:"Mathematics"},{id:"s4",name:"English Language"}],
-    users: [
-      {id:"u1",role:"admin",username:"admin",password:"admin123",name:"Administrator"},
-      {id:"u2",role:"teacher",username:"teacher",password:"teacher123",name:"Jeremiah Mazire",subjects:["s1","s2"]}
-    ],
-    students: [
-      {id:"st1",adm:"1001",password:"student123",name:"Tendai Chikwanda",classId:"c1"},
-      {id:"st2",adm:"1002",password:"student123",name:"Rudo Madziva",classId:"c1"},
-      {id:"st3",adm:"1003",password:"student123",name:"Farai Ncube",classId:"c2"}
-    ],
-    marks: []
-  };
+async function api(path, opts = {}) {
+  const res = await fetch("/api/" + path, {
+    method: opts.method || "GET",
+    credentials: "same-origin",
+    headers: opts.body ? { "Content-Type": "application/json" } : {},
+    body: opts.body ? JSON.stringify(opts.body) : undefined
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || "Request failed (" + res.status + ")");
+  return data;
 }
-let db = JSON.parse(localStorage.getItem(KEY) || "null") || seed();
-const save = () => localStorage.setItem(KEY, JSON.stringify(db));
-const gradeOf = n => (GRADES.find(([min]) => n >= min) || [0,"U"])[1];
-const nameOf = (list, id) => (list.find(x => x.id === id) || {}).name || "—";
-
-/* ---------- Login ---------- */
-function login(){
-  const u = document.getElementById("lg-user").value.trim();
-  const p = document.getElementById("lg-pass").value;
-  let acct = db.users.find(x => x.username === u && x.password === p);
-  if(acct){ db.session = {kind:"user", id: acct.id}; }
-  else {
-    const st = db.students.find(x => x.adm === u && x.password === p);
-    if(st) db.session = {kind:"student", id: st.id};
-  }
-  if(!db.session){ document.getElementById("lg-err").textContent = "Incorrect username or password."; return; }
-  save(); start();
+function toast(text, ok) {
+  const t = $("toast");
+  t.textContent = text;
+  t.className = "toast show " + (ok ? "ok" : "bad");
+  clearTimeout(toast.timer);
+  toast.timer = setTimeout(() => (t.className = "toast"), 3500);
 }
-document.getElementById("lg-btn").onclick = login;
-document.getElementById("lg-pass").addEventListener("keydown", e => { if(e.key==="Enter") login(); });
-document.getElementById("logout").onclick = () => { db.session = null; save(); location.reload(); };
-
-/* ---------- Session / shell ---------- */
-let current = null, view = null, me = null, meRole = null;
-function start(){
-  if(!db.session){ document.getElementById("login").classList.remove("hidden"); document.getElementById("app").classList.add("hidden"); return; }
-  if(db.session.kind === "user"){ me = db.users.find(x => x.id === db.session.id); meRole = me.role; }
-  else { me = db.students.find(x => x.id === db.session.id); meRole = "student"; }
-  if(!me){ db.session = null; save(); location.reload(); return; }
-  document.getElementById("login").classList.add("hidden");
-  document.getElementById("app").classList.remove("hidden");
-  const menus = {
-    admin:[["teachers","Teachers"],["structure","Classes & Subjects"],["students","Students"],["terms","Terms"]],
-    teacher:[["marks","Enter Marks"],["myclasses","My Subjects"]],
-    student:[["results","My Results"],["profile","Profile"]]
-  };
-  const nav = document.getElementById("nav");
-  nav.innerHTML = menus[meRole].map(([k,l]) => `<button data-v="${k}">${l}</button>`).join("");
-  nav.querySelectorAll("button").forEach(b => b.onclick = () => show(b.dataset.v));
-  document.getElementById("who").innerHTML = `<strong>${esc(me.name)}</strong> <small>· ${meRole}</small>`;
-  show(menus[meRole][0][0]);
+async function run(fn, okMsg, after) {
+  try { await fn(); if (okMsg) toast(okMsg, true); if (after) await after(); }
+  catch (e) { toast(e.message, false); }
 }
 
+/* ---------- Auth ---------- */
+let me = null, meta = { classes: [], subjects: [], terms: [] }, authMode = "login";
+
+async function boot() {
+  try { me = (await api("me")).user; await enterApp(); }
+  catch { await showAuth(); }
+}
+async function showAuth() {
+  $("app").classList.add("hidden");
+  $("auth").classList.remove("hidden");
+  const { needsSetup } = await api("status");
+  authMode = needsSetup ? "setup" : "login";
+  $("auth-title").textContent = needsSetup ? "Create the administrator account" : "Sign in";
+  $("setup-fields").classList.toggle("hidden", !needsSetup);
+  $("auth-btn").textContent = needsSetup ? "Create account and continue" : "Sign in";
+  $("auth-hint").classList.toggle("hidden", needsSetup);
+}
+async function submitAuth() {
+  $("auth-err").textContent = "";
+  const username = $("f-user").value.trim(), password = $("f-pass").value;
+  try {
+    if (authMode === "setup") await api("setup", { method: "POST", body: { name: $("f-name").value, username, password } });
+    await api("login", { method: "POST", body: { username, password } });
+    me = (await api("me")).user;
+    await enterApp();
+  } catch (e) { $("auth-err").textContent = e.message; }
+}
+$("auth-btn").onclick = submitAuth;
+$("f-pass").addEventListener("keydown", e => { if (e.key === "Enter") submitAuth(); });
+$("logout").onclick = async () => { await api("logout", { method: "POST" }).catch(() => {}); location.reload(); };
+
+/* ---------- Shell ---------- */
+const MENUS = {
+  admin: [["teachers","Teachers"],["structure","Classes & Subjects"],["students","Students"],["terms","Terms"]],
+  teacher: [["marks","Enter Marks"],["mysubjects","My Subjects"]],
+  student: [["results","My Results"],["profile","Profile"]]
+};
 const TITLES = {
   teachers:["Teachers","Add teachers and assign the subjects they teach."],
-  structure:["Classes & Subjects","Create the classes (forms) and subjects offered."],
-  students:["Students","Register students and assign them to a class."],
+  structure:["Classes & Subjects","Create the classes (forms) and the subjects offered."],
+  students:["Students","Register students and assign each one to a class."],
   terms:["Terms","Define the terms that results are recorded against."],
   marks:["Enter Marks","Record each student's score for a class, subject and term."],
-  myclasses:["My Subjects","The subjects assigned to you."],
-  results:["My Results","Your results for the term you select."],
+  mysubjects:["My Subjects","The subjects assigned to you."],
+  results:["My Results","Your subject scores for the term you select."],
   profile:["Profile","Your personal details."]
 };
-function show(v){
-  view = v;
-  document.querySelectorAll(".nav button").forEach(b => b.classList.toggle("active", b.dataset.v === v));
-  document.getElementById("title").textContent = TITLES[v][0];
-  document.getElementById("sub").textContent = TITLES[v][1];
-  const render = {teachers:rTeachers, structure:rStructure, students:rStudents, terms:rTerms,
-    marks:rMarks, myclasses:rMyClasses, results:rResults, profile:rProfile}[v];
-  render();
-}
-const C = () => document.getElementById("content");
-const flash = (id, text, ok) => { const el = document.getElementById(id); if(el){ el.textContent = text; el.className = "msg " + (ok?"ok":"bad"); } };
+const RENDER = { teachers:rTeachers, structure:rStructure, students:rStudents, terms:rTerms,
+  marks:rMarks, mysubjects:rMySubjects, results:rResults, profile:rProfile };
 
-/* ---------- ADMIN: Teachers ---------- */
-function rTeachers(){
-  const teachers = db.users.filter(u => u.role === "teacher");
+async function enterApp() {
+  $("auth").classList.add("hidden");
+  $("app").classList.remove("hidden");
+  $("who").innerHTML = `<strong>${esc(me.name)}</strong> <small>· ${esc(me.role)}</small>`;
+  $("nav").innerHTML = MENUS[me.role].map(([k, l]) => `<button data-v="${k}">${l}</button>`).join("");
+  $("nav").querySelectorAll("button").forEach(b => b.onclick = () => show(b.dataset.v));
+  show(MENUS[me.role][0][0]);
+}
+function show(v) {
+  document.querySelectorAll(".nav button").forEach(b => b.classList.toggle("active", b.dataset.v === v));
+  $("title").textContent = TITLES[v][0];
+  $("sub").textContent = TITLES[v][1];
+  C().innerHTML = '<div class="empty">Loading…</div>';
+  RENDER[v]().catch(e => toast(e.message, false));
+}
+async function refreshMeta() { meta = await api("meta"); }
+const className = id => (meta.classes.find(c => c.id === id) || {}).name || "—";
+const subjectName = id => (meta.subjects.find(s => s.id === id) || {}).name || "—";
+
+/* ---------- Admin: teachers ---------- */
+async function rTeachers() {
+  await refreshMeta();
+  const { teachers } = await api("teachers");
   C().innerHTML = `
   <div class="card"><h2>Add a teacher</h2>
     <div class="row">
       <div><label>Full name</label><input id="t-name"></div>
       <div><label>Username</label><input id="t-user"></div>
-      <div><label>Password</label><input id="t-pass" type="text"></div>
+      <div><label>Temporary password</label><input id="t-pass" placeholder="At least 6 characters"></div>
     </div>
     <label>Subjects taught</label>
-    <div class="checks">${db.subjects.map(s => `<label><input type="checkbox" class="t-sub" value="${s.id}"> ${esc(s.name)}</label>`).join("") || '<span class="empty">Add subjects first.</span>'}</div>
+    <div class="checks">${meta.subjects.map(s => `<label><input type="checkbox" class="t-sub" value="${s.id}"> ${esc(s.name)}</label>`).join("") || '<span class="empty">Add subjects first (Classes & Subjects).</span>'}</div>
     <button class="btn" id="t-add" style="margin-top:14px">Add teacher</button>
-    <div class="msg" id="t-msg"></div>
   </div>
   <div class="card"><h2>Teachers (${teachers.length})</h2>
     ${teachers.length ? `<table><thead><tr><th>Name</th><th>Username</th><th>Subjects</th><th></th></tr></thead><tbody>
     ${teachers.map(t => `<tr><td>${esc(t.name)}</td><td>${esc(t.username)}</td>
-      <td>${(t.subjects||[]).map(id => `<span class="tag">${esc(nameOf(db.subjects,id))}</span>`).join("") || "—"}</td>
+      <td>${t.subjectIds.map(id => `<span class="tag">${esc(subjectName(id))}</span>`).join("") || "—"}</td>
       <td><button class="btn sm danger" data-del-teacher="${t.id}">Remove</button></td></tr>`).join("")}
     </tbody></table>` : '<div class="empty">No teachers yet.</div>'}
   </div>`;
-  document.getElementById("t-add").onclick = () => {
-    const name = document.getElementById("t-name").value.trim();
-    const username = document.getElementById("t-user").value.trim();
-    const password = document.getElementById("t-pass").value;
-    const subjects = [...document.querySelectorAll(".t-sub:checked")].map(c => c.value);
-    if(!name || !username || !password) return flash("t-msg","Name, username and password are required.",false);
-    if(db.users.some(u => u.username === username)) return flash("t-msg","That username is already taken.",false);
-    db.users.push({id:uid(), role:"teacher", username, password, name, subjects});
-    save(); rTeachers(); flash("t-msg","Teacher added.",true);
-  };
+  $("t-add").onclick = () => run(() => api("teachers", { method: "POST", body: {
+    name: $("t-name").value, username: $("t-user").value, password: $("t-pass").value,
+    subjectIds: [...document.querySelectorAll(".t-sub:checked")].map(c => c.value) } }), "Teacher added.", rTeachers);
   C().querySelectorAll("[data-del-teacher]").forEach(b => b.onclick = () => {
-    if(!confirm("Remove this teacher?")) return;
-    db.users = db.users.filter(u => u.id !== b.dataset.delTeacher); save(); rTeachers();
+    if (confirm("Remove this teacher?")) run(() => api("teachers/" + b.dataset.delTeacher, { method: "DELETE" }), "Teacher removed.", rTeachers);
   });
 }
 
-/* ---------- ADMIN: Classes & Subjects ---------- */
-function rStructure(){
+/* ---------- Admin: classes and subjects ---------- */
+async function rStructure() {
+  await refreshMeta();
+  const tag = (x, kind) => `<span class="tag">${esc(x.name)} <a href="#" class="x" data-del-${kind}="${x.id}">×</a></span>`;
   C().innerHTML = `
   <div class="card"><h2>Classes (forms)</h2>
-    <div class="row"><div><label>New class name</label><input id="c-name" placeholder="e.g. Form 3C"></div>
-    <button class="btn" id="c-add">Add class</button></div><div class="msg" id="c-msg"></div>
-    <div style="margin-top:12px">${db.classes.map(c => `<span class="tag">${esc(c.name)} <a href="#" data-del-class="${c.id}" style="color:var(--bad);text-decoration:none">×</a></span>`).join("") || '<div class="empty">No classes yet.</div>'}</div>
+    <div class="row"><div><label>New class</label><input id="c-name" placeholder="e.g. Form 3C"></div>
+    <button class="btn" id="c-add">Add class</button></div>
+    <div style="margin-top:14px">${meta.classes.map(c => tag(c, "class")).join("") || '<div class="empty">No classes yet.</div>'}</div>
   </div>
   <div class="card"><h2>Subjects</h2>
-    <div class="row"><div><label>New subject name</label><input id="s-name" placeholder="e.g. History"></div>
-    <button class="btn" id="s-add">Add subject</button></div><div class="msg" id="s-msg"></div>
-    <div style="margin-top:12px">${db.subjects.map(s => `<span class="tag">${esc(s.name)} <a href="#" data-del-sub="${s.id}" style="color:var(--bad);text-decoration:none">×</a></span>`).join("") || '<div class="empty">No subjects yet.</div>'}</div>
+    <div class="row"><div><label>New subject</label><input id="s-name" placeholder="e.g. History"></div>
+    <button class="btn" id="s-add">Add subject</button></div>
+    <div style="margin-top:14px">${meta.subjects.map(s => tag(s, "sub")).join("") || '<div class="empty">No subjects yet.</div>'}</div>
   </div>`;
-  document.getElementById("c-add").onclick = () => {
-    const n = document.getElementById("c-name").value.trim();
-    if(!n) return flash("c-msg","Enter a class name.",false);
-    db.classes.push({id:uid(), name:n}); save(); rStructure(); flash("c-msg","Class added.",true);
-  };
-  document.getElementById("s-add").onclick = () => {
-    const n = document.getElementById("s-name").value.trim();
-    if(!n) return flash("s-msg","Enter a subject name.",false);
-    db.subjects.push({id:uid(), name:n}); save(); rStructure(); flash("s-msg","Subject added.",true);
-  };
+  $("c-add").onclick = () => run(() => api("classes", { method: "POST", body: { name: $("c-name").value } }), "Class added.", rStructure);
+  $("s-add").onclick = () => run(() => api("subjects", { method: "POST", body: { name: $("s-name").value } }), "Subject added.", rStructure);
   C().querySelectorAll("[data-del-class]").forEach(a => a.onclick = e => { e.preventDefault();
-    if(!confirm("Delete this class?")) return; db.classes = db.classes.filter(c => c.id !== a.dataset.delClass); save(); rStructure(); });
+    if (confirm("Delete this class?")) run(() => api("classes/" + a.dataset.delClass, { method: "DELETE" }), "Class deleted.", rStructure); });
   C().querySelectorAll("[data-del-sub]").forEach(a => a.onclick = e => { e.preventDefault();
-    if(!confirm("Delete this subject?")) return; db.subjects = db.subjects.filter(s => s.id !== a.dataset.delSub); save(); rStructure(); });
+    if (confirm("Delete this subject and its marks?")) run(() => api("subjects/" + a.dataset.delSub, { method: "DELETE" }), "Subject deleted.", rStructure); });
 }
 
-/* ---------- ADMIN: Students ---------- */
-function rStudents(){
-  const classOpts = db.classes.map(c => `<option value="${c.id}">${esc(c.name)}</option>`).join("");
+/* ---------- Admin: students ---------- */
+async function rStudents() {
+  await refreshMeta();
+  const { students } = await api("students");
   C().innerHTML = `
   <div class="card"><h2>Register a student</h2>
     <div class="row">
       <div><label>Full name</label><input id="st-name"></div>
       <div><label>Admission number</label><input id="st-adm"></div>
-      <div><label>Class</label><select id="st-class">${classOpts || '<option value="">Add a class first</option>'}</select></div>
-      <div><label>Initial password</label><input id="st-pass" type="text" value="student123"></div>
+      <div><label>Class</label><select id="st-class">${meta.classes.map(c => `<option value="${c.id}">${esc(c.name)}</option>`).join("") || '<option value="">Add a class first</option>'}</select></div>
+      <div><label>Initial password</label><input id="st-pass" placeholder="At least 6 characters"></div>
     </div>
     <button class="btn" id="st-add" style="margin-top:14px">Register student</button>
-    <div class="msg" id="st-msg"></div>
   </div>
-  <div class="card"><h2>Students (${db.students.length})</h2>
-    ${db.students.length ? `<table><thead><tr><th>Adm no.</th><th>Name</th><th>Class</th><th></th></tr></thead><tbody>
-    ${db.students.map(s => `<tr><td>${esc(s.adm)}</td><td>${esc(s.name)}</td><td>${esc(nameOf(db.classes,s.classId))}</td>
+  <div class="card"><h2>Students (${students.length})</h2>
+    ${students.length ? `<table><thead><tr><th>Adm no.</th><th>Name</th><th>Class</th><th></th></tr></thead><tbody>
+    ${students.map(s => `<tr><td>${esc(s.adm)}</td><td>${esc(s.name)}</td><td>${esc(className(s.classId))}</td>
       <td><button class="btn sm danger" data-del-st="${s.id}">Remove</button></td></tr>`).join("")}
     </tbody></table>` : '<div class="empty">No students yet.</div>'}
   </div>`;
-  document.getElementById("st-add").onclick = () => {
-    const name = document.getElementById("st-name").value.trim();
-    const adm = document.getElementById("st-adm").value.trim();
-    const classId = document.getElementById("st-class").value;
-    const password = document.getElementById("st-pass").value;
-    if(!name || !adm || !classId) return flash("st-msg","Name, admission number and class are required.",false);
-    if(db.students.some(s => s.adm === adm)) return flash("st-msg","That admission number already exists.",false);
-    db.students.push({id:uid(), name, adm, classId, password}); save(); rStudents(); flash("st-msg","Student registered.",true);
-  };
+  $("st-add").onclick = () => run(() => api("students", { method: "POST", body: {
+    name: $("st-name").value, adm: $("st-adm").value, classId: $("st-class").value, password: $("st-pass").value } }),
+    "Student registered.", rStudents);
   C().querySelectorAll("[data-del-st]").forEach(b => b.onclick = () => {
-    if(!confirm("Remove this student and their marks?")) return;
-    const id = b.dataset.delSt;
-    db.students = db.students.filter(s => s.id !== id);
-    db.marks = db.marks.filter(m => m.studentId !== id); save(); rStudents();
+    if (confirm("Remove this student and all their marks?")) run(() => api("students/" + b.dataset.delSt, { method: "DELETE" }), "Student removed.", rStudents);
   });
 }
 
-/* ---------- ADMIN: Terms ---------- */
-function rTerms(){
-  C().innerHTML = `
-  <div class="card"><h2>Terms</h2>
+/* ---------- Admin: terms ---------- */
+async function rTerms() {
+  await refreshMeta();
+  C().innerHTML = `<div class="card"><h2>Terms</h2>
     <div class="row"><div><label>New term</label><input id="term-name" placeholder="e.g. Term 1 2027"></div>
-    <button class="btn" id="term-add">Add term</button></div><div class="msg" id="term-msg"></div>
-    <div style="margin-top:12px">${db.terms.map(t => `<span class="tag">${esc(t)}</span>`).join("") || '<div class="empty">No terms yet.</div>'}</div>
+    <button class="btn" id="term-add">Add term</button></div>
+    <div style="margin-top:14px">${meta.terms.map(t => `<span class="tag">${esc(t)} <a href="#" class="x" data-del-term="${esc(t)}">×</a></span>`).join("") || '<div class="empty">No terms yet.</div>'}</div>
   </div>`;
-  document.getElementById("term-add").onclick = () => {
-    const t = document.getElementById("term-name").value.trim();
-    if(!t) return flash("term-msg","Enter a term name.",false);
-    if(db.terms.includes(t)) return flash("term-msg","That term already exists.",false);
-    db.terms.push(t); save(); rTerms(); flash("term-msg","Term added.",true);
-  };
+  $("term-add").onclick = () => run(() => api("terms", { method: "POST", body: { name: $("term-name").value } }), "Term added.", rTerms);
+  C().querySelectorAll("[data-del-term]").forEach(a => a.onclick = e => { e.preventDefault();
+    if (confirm("Delete this term?")) run(() => api("terms/" + q(a.dataset.delTerm), { method: "DELETE" }), "Term deleted.", rTerms); });
 }
 
-/* ---------- TEACHER: Enter marks ---------- */
-function rMarks(){
-  const mySubjects = db.subjects.filter(s => (me.subjects||[]).includes(s.id));
-  if(!mySubjects.length){ C().innerHTML = '<div class="card empty">You have no subjects assigned yet. Ask the admin to assign them.</div>'; return; }
-  const opts = (list, empty) => list.map(x => `<option value="${x.id}">${esc(x.name)}</option>`).join("") || `<option value="">${empty}</option>`;
+/* ---------- Teacher: enter marks ---------- */
+async function rMarks() {
+  await refreshMeta();
+  const subjects = me.role === "admin" ? meta.subjects : meta.subjects.filter(s => me.subjectIds.includes(s.id));
+  if (!subjects.length) { C().innerHTML = '<div class="card empty">You have no subjects assigned yet. Ask the administrator to assign them.</div>'; return; }
+  const opts = list => list.map(x => `<option value="${x.id}">${esc(x.name)}</option>`).join("");
   C().innerHTML = `
-  <div class="card">
-    <div class="row">
-      <div><label>Class</label><select id="m-class">${opts(db.classes,"No classes")}</select></div>
-      <div><label>Subject</label><select id="m-sub">${opts(mySubjects,"")}</select></div>
-      <div><label>Term</label><select id="m-term">${db.terms.map(t => `<option>${esc(t)}</option>`).join("")}</select></div>
-    </div>
-  </div>
+  <div class="card"><div class="row">
+    <div><label>Class</label><select id="m-class">${opts(meta.classes)}</select></div>
+    <div><label>Subject</label><select id="m-sub">${opts(subjects)}</select></div>
+    <div><label>Term</label><select id="m-term">${meta.terms.map(t => `<option>${esc(t)}</option>`).join("")}</select></div>
+  </div></div>
   <div class="card" id="m-table"></div>`;
-  ["m-class","m-sub","m-term"].forEach(id => document.getElementById(id).onchange = loadMarks);
+  ["m-class", "m-sub", "m-term"].forEach(id => $(id).onchange = loadMarks);
   loadMarks();
 }
-function loadMarks(){
-  const classId = document.getElementById("m-class").value;
-  const subId = document.getElementById("m-sub").value;
-  const term = document.getElementById("m-term").value;
-  const students = db.students.filter(s => s.classId === classId).sort((a,b) => a.name.localeCompare(b.name));
-  const box = document.getElementById("m-table");
-  if(!students.length){ box.innerHTML = '<div class="empty">No students in this class yet.</div>'; return; }
+async function loadMarks() {
+  const classId = $("m-class").value, subjectId = $("m-sub").value, term = $("m-term").value, box = $("m-table");
+  if (!classId || !subjectId || !term) { box.innerHTML = '<div class="empty">Add classes, subjects and terms first.</div>'; return; }
+  const { students } = await api(`marks?classId=${q(classId)}&subjectId=${q(subjectId)}&term=${q(term)}`);
+  if (!students.length) { box.innerHTML = '<div class="empty">No students are registered in this class yet.</div>'; return; }
   box.innerHTML = `
-  <h2>${esc(nameOf(db.classes,classId))} · ${esc(nameOf(db.subjects,subId))} · ${esc(term)}</h2>
+  <h2>${esc(className(classId))} · ${esc(subjectName(subjectId))} · ${esc(term)}</h2>
   <table><thead><tr><th>Adm no.</th><th>Student</th><th>Score (0–100)</th><th>Grade</th></tr></thead><tbody>
-  ${students.map(s => {
-    const m = db.marks.find(x => x.studentId===s.id && x.subjectId===subId && x.term===term);
-    const v = m ? m.score : "";
-    return `<tr><td>${esc(s.adm)}</td><td>${esc(s.name)}</td>
-      <td><input type="number" min="0" max="100" data-sid="${s.id}" value="${v}"></td>
-      <td class="grade" data-g="${s.id}">${v!==""?gradeOf(Number(v)):"—"}</td></tr>`;
-  }).join("")}
+  ${students.map(s => `<tr><td>${esc(s.adm)}</td><td>${esc(s.name)}</td>
+    <td><input type="number" min="0" max="100" step="1" data-sid="${s.id}" value="${s.score ?? ""}"></td>
+    <td class="grade" data-g="${s.id}">${s.score == null ? "—" : gradeOf(s.score)}</td></tr>`).join("")}
   </tbody></table>
-  <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
-    <button class="btn" id="m-save">Save marks</button><div class="msg" id="m-msg"></div>
-  </div>`;
+  <div style="margin-top:14px"><button class="btn" id="m-save">Save marks</button></div>`;
   box.querySelectorAll("input[data-sid]").forEach(inp => inp.oninput = () => {
-    const g = box.querySelector(`[data-g="${inp.dataset.sid}"]`);
-    g.textContent = inp.value === "" ? "—" : gradeOf(Number(inp.value));
+    box.querySelector(`[data-g="${inp.dataset.sid}"]`).textContent = inp.value === "" ? "—" : gradeOf(Number(inp.value));
   });
-  document.getElementById("m-save").onclick = () => {
-    let bad = false;
-    box.querySelectorAll("input[data-sid]").forEach(inp => {
-      const sid = inp.dataset.sid;
-      db.marks = db.marks.filter(x => !(x.studentId===sid && x.subjectId===subId && x.term===term));
-      if(inp.value !== ""){
-        const n = Number(inp.value);
-        if(isNaN(n) || n<0 || n>100){ bad = true; return; }
-        db.marks.push({studentId:sid, subjectId:subId, term, classId, score:n, teacherId:me.id});
-      }
-    });
-    if(bad) return flash("m-msg","Scores must be between 0 and 100.",false);
-    save(); flash("m-msg","Marks saved.",true);
+  $("m-save").onclick = () => {
+    const scores = [...box.querySelectorAll("input[data-sid]")].map(i => ({ studentId: i.dataset.sid, score: i.value === "" ? null : Number(i.value) }));
+    run(() => api("marks", { method: "POST", body: { classId, subjectId, term, scores } }), "Marks saved.", null);
   };
 }
 
-/* ---------- TEACHER: My subjects ---------- */
-function rMyClasses(){
-  const mine = db.subjects.filter(s => (me.subjects||[]).includes(s.id));
+async function rMySubjects() {
+  await refreshMeta();
+  const mine = meta.subjects.filter(s => me.subjectIds.includes(s.id));
   C().innerHTML = `<div class="card"><h2>Your subjects</h2>${mine.map(s => `<span class="tag">${esc(s.name)}</span>`).join("") || '<div class="empty">None assigned yet.</div>'}</div>`;
 }
 
-/* ---------- STUDENT: Results ---------- */
-function rResults(){
-  C().innerHTML = `
-  <div class="card"><div class="row">
-    <div><label>Select term</label><select id="r-term">${db.terms.map(t => `<option>${esc(t)}</option>`).join("")}</select></div>
-  </div></div>
-  <div id="r-body"></div>`;
-  document.getElementById("r-term").onchange = drawResults;
+/* ---------- Student: results and profile ---------- */
+async function rResults() {
+  await refreshMeta();
+  if (!meta.terms.length) { C().innerHTML = '<div class="card empty">No terms have been set up yet.</div>'; return; }
+  C().innerHTML = `<div class="card"><div class="row"><div><label>Select term</label>
+    <select id="r-term">${meta.terms.map(t => `<option>${esc(t)}</option>`).join("")}</select></div></div></div>
+    <div id="r-body"></div>`;
+  $("r-term").onchange = drawResults;
   drawResults();
 }
-function drawResults(){
-  const term = document.getElementById("r-term").value;
-  const rows = db.marks.filter(m => m.studentId === me.id && m.term === term);
-  const body = document.getElementById("r-body");
-  if(!rows.length){ body.innerHTML = '<div class="card empty">No results have been published for this term yet.</div>'; return; }
-  const avg = Math.round(rows.reduce((a,r) => a + r.score, 0) / rows.length);
-  const best = rows.reduce((a,r) => r.score > a.score ? r : a, rows[0]);
+async function drawResults() {
+  const term = $("r-term").value, body = $("r-body");
+  const { results } = await api("results?term=" + q(term));
+  if (!results.length) { body.innerHTML = '<div class="card empty">No results have been published for this term yet.</div>'; return; }
+  const avg = Math.round(results.reduce((a, r) => a + r.score, 0) / results.length);
+  const best = results.reduce((a, r) => (r.score > a.score ? r : a));
   body.innerHTML = `
   <div class="stats">
     <div class="stat"><div class="l">Average score</div><div class="v">${avg}%</div></div>
-    <div class="stat"><div class="l">Best subject</div><div class="v" style="font-size:20px">${esc(nameOf(db.subjects,best.subjectId))}</div></div>
-    <div class="stat"><div class="l">Subjects</div><div class="v">${rows.length}</div></div>
+    <div class="stat"><div class="l">Best subject</div><div class="v" style="font-size:20px">${esc(best.subject)}</div></div>
+    <div class="stat"><div class="l">Subjects</div><div class="v">${results.length}</div></div>
   </div>
-  <div class="card"><h2>${esc(term)} results · ${esc(me.name)} (${esc(me.adm)})</h2>
-  <table><thead><tr><th>Subject</th><th>Score</th><th>Grade</th></tr></thead><tbody>
-  ${rows.map(r => `<tr><td>${esc(nameOf(db.subjects,r.subjectId))}</td><td>${r.score}%</td><td class="grade">${gradeOf(r.score)}</td></tr>`).join("")}
-  </tbody></table></div>`;
+  <div class="card"><h2>${esc(term)} · ${esc(me.name)} (${esc(me.username)})</h2>
+    <table><thead><tr><th>Subject</th><th>Score</th><th>Grade</th></tr></thead><tbody>
+    ${results.map(r => `<tr><td>${esc(r.subject)}</td><td>${r.score}%</td><td class="grade">${gradeOf(r.score)}</td></tr>`).join("")}
+    </tbody></table></div>`;
 }
-
-/* ---------- STUDENT: Profile ---------- */
-function rProfile(){
-  const cls = nameOf(db.classes, me.classId);
+async function rProfile() {
+  await refreshMeta();
   C().innerHTML = `<div class="card"><table><tbody>
     <tr><th>Name</th><td>${esc(me.name)}</td></tr>
-    <tr><th>Admission number</th><td>${esc(me.adm)}</td></tr>
-    <tr><th>Class</th><td>${esc(cls)}</td></tr>
+    <tr><th>Admission number</th><td>${esc(me.username)}</td></tr>
+    <tr><th>Class</th><td>${esc(className(me.classId))}</td></tr>
   </tbody></table></div>`;
 }
 
-start();
+boot();
 </script>
 </body>
 </html>
