@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stella Maris College | Student Portal</title>
+<style>
+  :root {
+    --navy: #0b2545;
+    --navy-2: #13315c;
+    --blue: #1d6fd6;
+    --sky: #e8f1fd;
+    --gold: #f2b134;
+    --ink: #1f2933;
+    --muted: #64748b;
+    --line: #e2e8f0;
+    --bg: #f5f7fb;
+    --white: #ffffff;
+    --ok: #16a34a;
+    --warn: #d97706;
+    --radius: 14px;
+    --shadow: 0 1px 2px rgba(15,23,42,.06), 0 4px 16px rgba(15,23,42,.06);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; }
+
+  /* Layout */
+  .app { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+  .sidebar {
+    background: linear-gradient(180deg, var(--navy), var(--navy-2));
+    color: #cbd5e1;
+    padding: 28px 18px;
+    display: flex; flex-direction: column; gap: 28px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; color: #fff; }
+  .logo {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: var(--gold); color: var(--navy);
+    display: grid; place-items: center; font-weight: 800; font-size: 18px;
+  }
+  .brand-text strong { display: block; font-size: 15px; letter-spacing: .2px; }
+  .brand-text span { font-size: 12px; color: #94a3b8; }
+  .nav { display: flex; flex-direction: column; gap: 4px; }
+  .nav button {
+    background: transparent; border: 0; color: #cbd5e1;
+    text-align: left; padding: 10px 12px; border-radius: 10px;
+    display: flex; align-items: center; gap: 10px; font-size: 14px;
+    transition: background .15s, color .15s;
+  }
+  .nav button:hover { background: rgba(255,255,255,.08); color: #fff; }
+  .nav button.active { background: rgba(255,255,255,.14); color: #fff; font-weight: 600; }
+  .nav .icon { width: 18px; text-align: center; opacity: .85; }
+  .sidebar-foot {
+    margin-top: auto; font-size: 12px; color: #94a3b8;
+    border-top: 1px solid rgba(255,255,255,.1); padding-top: 16px;
+  }
+
+  /* Main */
+  .main { padding: 28px 36px 48px; }
+  .topbar {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 16px; margin-bottom: 28px; flex-wrap: wrap;
+  }
+  .topbar h1 { font-size: 24px; font-weight: 700; color: var(--navy); }
+  .topbar p { color: var(--muted); font-size: 14px; }
+  .user {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--white); padding: 8px 14px 8px 8px;
+    border-radius: 999px; box-shadow: var(--shadow);
+  }
+  .avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--sky); color: var(--blue);
+    display: grid; place-items: center; font-weight: 700; font-size: 13px;
+  }
+  .user small { display: block; color: var(--muted); font-size: 12px; }
+  .user strong { font-size: 14px; }
+
+  /* Cards */
+  .grid { display: grid; gap: 20px; grid-template-columns: repeat(12, 1fr); }
+  .card {
+    background: var(--white); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 22px; border: 1px solid var(--line);
+  }
+  .card h2 { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 14px; }
+  .span-3 { grid-column: span 3; }
+  .span-4 { grid-column: span 4; }
+  .span-6 { grid-column: span 6; }
+  .span-8 { grid-column: span 8; }
+  .span-12 { grid-column: span 12; }
+
+  .stat .label { font-size: 13px; color: var(--muted); }
+  .stat .value { font-size: 28px; font-weight: 700; color: var(--navy); margin-top: 4px; }
+  .stat .delta { font-size: 12px; color: var(--ok); margin-top: 4px; }
+
+  .badge {
+    display: inline-block; font-size: 12px; font-weight: 600;
+    padding: 3px 10px; border-radius: 999px;
+  }
+  .badge.ok { background: #dcfce7; color: #166534; }
+  .badge.warn { background: #fef3c7; color: #92400e; }
+  .badge.info { background: var(--sky); color: var(--blue); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 11px 8px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .4px; }
+  tr:last-child td { border-bottom: 0; }
+
+  .progress { height: 8px; background: var(--line); border-radius: 999px; overflow: hidden; }
+  .progress span { display: block; height: 100%; background: linear-gradient(90deg, var(--blue), #60a5fa); border-radius: 999px; }
+  .subject-row { margin-bottom: 16px; }
+  .subject-row .top { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 6px; }
+  .subject-row .top span:last-child { color: var(--muted); }
+
+  .list { display: flex; flex-direction: column; gap: 14px; }
+  .item { display: flex; gap: 12px; align-items: flex-start; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 6px; background: var(--blue); flex-shrink: 0; }
+  .item strong { font-size: 14px; display: block; }
+  .item small { color: var(--muted); font-size: 12px; }
+
+  .btn {
+    background: var(--blue); color: #fff; border: 0;
+    padding: 9px 16px; border-radius: 10px; font-size: 14px; font-weight: 600;
+    transition: background .15s;
+  }
+  .btn:hover { background: #1558b0; }
+  .btn.ghost { background: transparent; color: var(--blue); border: 1px solid var(--line); }
+  .btn.ghost:hover { background: var(--sky); }
+
+  /* Hidden views */
+  .view { display: none; }
+  .view.show { display: block; }
+
+  /* Responsive */
+  @media (max-width: 960px) {
+    .app { grid-template-columns: 1fr; }
+    .sidebar { flex-direction: row; overflow-x: auto; padding: 14px 16px; gap: 16px; }
+    .sidebar-foot { display: none; }
+    .nav { flex-direction: row; }
+    .nav button { white-space: nowrap; }
+    .span-3, .span-4, .span-6, .span-8 { grid-column: span 12; }
+    .main { padding: 22px 16px 40px; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">SM</div>
+      <div class="brand-text">
+        <strong>Stella Maris College</strong>
+        <span>Student Portal</span>
+      </div>
+    </div>
+
+    <nav class="nav" id="nav">
+      <button class="active" data-view="dashboard"><span class="icon">&#9632;</span> Dashboard</button>
+      <button data-view="results"><span class="icon">&#9998;</span> Results</button>
+      <button data-view="timetable"><span class="icon">&#9719;</span> Timetable</button>
+      <button data-view="announcements"><span class="icon">&#9993;</span> Announcements</button>
+      <button data-view="profile"><span class="icon">&#9787;</span> Profile</button>
+    </nav>
+
+    <div class="sidebar-foot">
+      &copy; <span id="year"></span> Stella Maris College<br>Zimbabwe
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h1 id="page-title">Dashboard</h1>
+        <p id="page-sub">Welcome back. Here is your overview for this term.</p>
+      </div>
+      <div class="user">
+        <div class="avatar">JM</div>
+        <div>
+          <strong>Jeremiah Mazire</strong>
+          <small>Staff Portal</small>
+        </div>
+      </div>
+    </header>
+
+    <!-- Dashboard -->
+    <section class="view show" id="view-dashboard">
+      <div class="grid">
+        <div class="card stat span-3">
+          <div class="label">Current term</div>
+          <div class="value">Term 3</div>
+          <div class="delta">Week 12 of 14</div>
+        </div>
+        <div class="card stat span-3">
+          <div class="label">Average score</div>
+          <div class="value">74%</div>
+          <div class="delta">+3% from last term</div>
+        </div>
+        <div class="card stat span-3">
+          <div class="label">Attendance</div>
+          <div class="value">96%</div>
+          <div class="delta">Above target</div>
+        </div>
+        <div class="card stat span-3">
+          <div class="label">Pending tasks</div>
+          <div class="value">4</div>
+          <div class="delta" style="color:var(--warn)">2 due this week</div>
+        </div>
+
+        <div class="card span-8">
+          <h2>Subject performance</h2>
+          <div class="subject-row">
+            <div class="top"><span>Physics</span><span>82%</span></div>
+            <div class="progress"><span style="width:82%"></span></div>
+          </div>
+          <div class="subject-row">
+            <div class="top"><span>Combined Science</span><span>76%</span></div>
+            <div class="progress"><span style="width:76%"></span></div>
+          </div>
+          <div class="subject-row">
+            <div class="top"><span>Mathematics</span><span>71%</span></div>
+            <div class="progress"><span style="width:71%"></span></div>
+          </div>
+          <div class="subject-row">
+            <div class="top"><span>English Language</span><span>68%</span></div>
+            <div class="progress"><span style="width:68%"></span></div>
+          </div>
+        </div>
+
+        <div class="card span-4">
+          <h2>Upcoming</h2>
+          <div class="list">
+            <div class="item"><div class="dot"></div><div><strong>Physics practical</strong><small>Mon, 09:00 · Lab 2</small></div></div>
+            <div class="item"><div class="dot" style="background:var(--gold)"></div><div><strong>Staff meeting</strong><small>Wed, 14:00 · Hall</small></div></div>
+            <div class="item"><div class="dot" style="background:var(--ok)"></div><div><strong>Sports fixtures submitted</strong><small>Fri, 12:00</small></div></div>
+          </div>
+        </div>
+
+        <div class="card span-12">
+          <h2>Recent announcements</h2>
+          <table>
+            <thead><tr><th>Date</th><th>Title</th><th>Audience</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>24 Nov</td><td>Mid-term examination timetable released</td><td>All students</td><td><span class="badge ok">Published</span></td></tr>
+              <tr><td>21 Nov</td><td>Inter-house sports day registration</td><td>Form 4 to 6</td><td><span class="badge info">Open</span></td></tr>
+              <tr><td>18 Nov</td><td>Fee payment reminder</td><td>Parents</td><td><span class="badge warn">Action needed</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="view" id="view-results">
+      <div class="grid">
+        <div class="card span-12">
+          <h2>Term 2 results</h2>
+          <table>
+            <thead><tr><th>Subject</th><th>Teacher</th><th>Score</th><th>Grade</th><th>Remark</th></tr></thead>
+            <tbody>
+              <tr><td>Physics</td><td>J. Mazire</td><td>82%</td><td>A</td><td>Excellent progress</td></tr>
+              <tr><td>Combined Science</td><td>J. Mazire</td><td>76%</td><td>B</td><td>Consistent effort</td></tr>
+              <tr><td>Mathematics</td><td>T. Moyo</td><td>71%</td><td>B</td><td>Practise word problems</td></tr>
+              <tr><td>English Language</td><td>R. Ncube</td><td>68%</td><td>C</td><td>Improve written expression</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timetable -->
+    <section class="view" id="view-timetable">
+      <div class="grid">
+        <div class="card span-12">
+          <h2>Weekly timetable</h2>
+          <table>
+            <thead><tr><th>Time</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th></tr></thead>
+            <tbody>
+              <tr><td>08:00 - 09:00</td><td>Physics</td><td>Mathematics</td><td>English</td><td>Physics</td><td>Combined Science</td></tr>
+              <tr><td>09:00 - 10:00</td><td>Physics</td><td>Mathematics</td><td>English</td><td>Combined Science</td><td>Combined Science</td></tr>
+              <tr><td>10:30 - 11:30</td><td>Break</td><td>Break</td><td>Break</td><td>Break</td><td>Break</td></tr>
+              <tr><td>11:30 - 12:30</td><td>Combined Science</td><td>Physics</td><td>Staff meeting</td><td>Mathematics</td><td>Sports</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Announcements -->
+    <section class="view" id="view-announcements">
+      <div class="grid">
+        <div class="card span-12">
+          <h2>All announcements</h2>
+          <div class="list">
+            <div class="item"><div class="dot"></div><div><strong>Mid-term examination timetable released</strong><small>24 November 2026 · All students</small></div></div>
+            <div class="item"><div class="dot" style="background:var(--gold)"></div><div><strong>Inter-house sports day registration</strong><small>21 November 2026 · Forms 4 to 6</small></div></div>
+            <div class="item"><div class="dot" style="background:var(--warn)"></div><div><strong>Fee payment reminder</strong><small>18 November 2026 · Parents</small></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Profile -->
+    <section class="view" id="view-profile">
+      <div class="grid">
+        <div class="card span-6">
+          <h2>Personal details</h2>
+          <table>
+            <tbody>
+              <tr><th>Name</th><td>Jeremiah Mazire</td></tr>
+              <tr><th>Role</th><td>Teacher, Physics and Combined Science</td></tr>
+              <tr><th>Department</th><td>Sciences</td></tr>
+              <tr><th>Location</th><td>Zimbabwe</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card span-6">
+          <h2>Responsibilities</h2>
+          <div class="list">
+            <div class="item"><div class="dot"></div><div><strong>Sports coordination</strong><small>Fixtures and inter-house events</small></div></div>
+            <div class="item"><div class="dot"></div><div><strong>Administration</strong><small>Timetables and reporting</small></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  // Sample navigation between portal sections
+  const titles = {
+    dashboard: ["Dashboard", "Welcome back. Here is your overview for this term."],
+    results: ["Results", "Your subject scores and teacher remarks for Term 2."],
+    timetable: ["Timetable", "Your weekly class schedule."],
+    announcements: ["Announcements", "Official notices from the school."],
+    profile: ["Profile", "Your personal and staff details."]
+  };
+
+  const buttons = document.querySelectorAll(".nav button");
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const key = btn.dataset.view;
+      buttons.forEach(b => b.classList.toggle("active", b === btn));
+      document.querySelectorAll(".view").forEach(v => v.classList.remove("show"));
+      document.getElementById("view-" + key).classList.add("show");
+      document.getElementById("page-title").textContent = titles[key][0];
+      document.getElementById("page-sub").textContent = titles[key][1];
+    });
+  });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
